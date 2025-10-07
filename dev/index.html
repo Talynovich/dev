@@ -4,42 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport">
     <title>1 Урок</title>
+    <link href="style.css" rel="stylesheet">
+<!--  Шрифты  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Iceberg&display=swap" rel="stylesheet">
+<!--    -->
 </head>
 <body>
     <header>
-        <h1>Bervenov Anatoly</h1>
+        <figure>
+            <img src="./img/ava.jpg" alt="Фото чего-нибудь">
+            <h1>Bervenov Anatoly</h1>
+        </figure>
         <p>
         <abbr title="это универсальный IT-специалист, который умеет создавать веб-сайты и приложения, работая как с фронтендом (клиентская часть, видимая пользователю), так и с бэкендом (серверная часть и база данных).">Fullstack Developer</abbr>
         </p>
-        Аge <data value="24">24</data>
+        <data value="24">Аge 24</data>
         <nav>
             <ul>
                 <li><a href="#summary" target="_blank">Summary</a></li>
                 <li><a href="#experience" target="_blank">Experience</a></li>
                 <li><a href="#skills" target="_blank">Skills</a></li>
-                <li><a href="#contact" target="_blank">Contact</a></li>
                 <li><a href="#personal-qualities" target="_blank">personal-qualities</a></li>
+                <li><a href="#contact" target="_blank">Contact</a></li>
             </ul>
         </nav>
-        <aside><p dir="rtl"><mark>Header</mark></p></aside>
-        <br>
     </header>
-    <hr>
     <main>
         <section id="summary">
-            <article>
-                <figure>
-                    <img src="#" alt="Фото чего-нибудь">
-                </figure>
+
                 <h2>About me</h2>
-                <kbd><p>Started training: <time datetime="2025-10-03">03.10.2025</time></p></kbd>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquid animi assumenda blanditiis culpa cupiditate deserunt dolore dolores eaque eveniet id laborum laudantium modi nam necessitatibus nobis quaerat quam quasi quia quod recusandae reiciendis tempore unde velit, voluptates voluptatibus! A dolorum eveniet explicabo hic nemo nihil nulla quam quo.
-            </article>
-            <br>
+                <kbd><p class="address-abd">Started training: <time datetime="2025-10-03">03.10.2025</time></p></kbd>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquid animi assumenda blanditiis culpa cupiditate deserunt dolore dolores eaque eveniet id laborum laudantium modi nam necessitatibus nobis quaerat quam quasi quia quod recusandae reiciendis tempore unde velit, voluptates voluptatibus! A dolorum eveniet explicabo hic nemo nihil nulla quam quo.</p>
+
         </section>
         <section id="personal-qualities">
             <h2><sub>Personal</sub> <sup>qualities</sup></h2>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto at atque aut corporis dolorem doloremque dolores doloribus dolorum explicabo facere fuga hic labore laudantium magnam minima nobis non nulla omnis perspiciatis praesentium quam quasi quia quos ratione reiciendis sint tempora tenetur veniam, voluptate. Eveniet molestias optio quisquam quo repellendus.
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto at atque aut corporis dolorem doloremque dolores doloribus dolorum explicabo facere fuga hic labore laudantium magnam minima nobis non nulla omnis perspiciatis praesentium quam quasi quia quos ratione reiciendis sint tempora tenetur veniam, voluptate. Eveniet molestias optio quisquam quo repellendus.</p>
         </section>
         <section id="experience">
                 <h2>Experience</h2>
@@ -68,19 +70,16 @@
                     </article>
                 </li>
             </ol>
-            <aside><p dir="rtl"><mark>Main</mark></p></aside>
         </section>
-        <hr>
     </main>
     <footer>
         <section id="contact">
-            <address>
-                Telegram: <em>@Tolynov</em>
+            <address class="address">
+                <em>Telegram: @Tolynov</em>
                 E-mail: <em>linelimefine@gmail.com</em>
                 <a href="https://github.com/Talynovich" target="_blank">GitHub</a>
             </address>
         </section>
-        <aside><p dir="rtl"><mark>Footer</mark></p></aside>
     </footer>
 </body>
 </html>

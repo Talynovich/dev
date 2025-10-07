@@ -1,0 +1,80 @@
+* {
+    color: #21bbef;
+    box-sizing: border-box;
+}
+html{
+    font-size: 17px;
+}
+body{
+    background-color: #FBF8CC;
+}
+a, p, data{
+    font-family: "Bruno Ace SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+}
+data, abbr {
+    display: block;
+    text-align: center;
+    color: #03045E;
+}
+li, a{
+    color: #03045E;
+    display: inline;
+    text-align: center;
+}
+a:hover{
+    color: #2f165c;
+}
+a:visited{
+    color: #2f165c;
+}
+
+h1, h2, h4, sup, sub{
+    font-family: "Iceberg", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #03045E;
+    font-size: 1.5rem;
+
+}
+figure{
+    text-align: center;
+}
+address{
+    font-family: "Bruno Ace SC", sans-serif;
+    font-weight: 200;
+}
+ul{
+    font-size: 1.1rem;
+    text-align: center;
+}
+li{
+    display: inline;
+}
+img{
+    height: 5rem;
+    width: 5rem;
+}
+article{
+    border: black solid 2px;
+    border-radius: 20px;
+    padding: 20px 20px;
+    -webkit-box-shadow: 41px 17px 50px -21px rgba(139, 236, 202, 0.43);
+    -moz-box-shadow: 41px 17px 50px -21px rgba(139, 236, 202, 0.43);
+    box-shadow: 41px 17px 50px -21px rgba(139, 236, 202, 0.43);
+    margin: 40px 10px;
+    text-align: left;
+}
+.address{
+    color: #03045E;
+}
+
+em{
+    color: #03045E;
+    font-weight: 300;
+}
+.address{
+    color: #03045E;
+}
