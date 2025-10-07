@@ -18,6 +18,10 @@ data, abbr {
     display: block;
     text-align: center;
     color: #03045E;
+    cursor: pointer;
+}
+abbr:hover{
+    color: #ef219d;
 }
 li, a{
     color: #03045E;
@@ -25,10 +29,10 @@ li, a{
     text-align: center;
 }
 a:hover{
-    color: #2f165c;
+    color: #703ad1;
 }
 a:visited{
-    color: #2f165c;
+    color: #025da8;
 }
 
 h1, h2, h4, sup, sub{
@@ -67,6 +71,9 @@ article{
     margin: 40px 10px;
     text-align: left;
 }
+section{
+    margin: 5rem;
+}
 .address{
     color: #03045E;
 }
@@ -77,4 +84,6 @@ em{
 }
 .address{
     color: #03045E;
+    padding: 10px 20px;
+    text-align: center;
 }
