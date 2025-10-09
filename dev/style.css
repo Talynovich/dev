@@ -41,7 +41,10 @@ h1, h2, h4, sup, sub{
     font-style: normal;
     color: #03045E;
     font-size: 1.5rem;
-
+    cursor: pointer;
+}
+sup:hover, sub:hover{
+    border-bottom: dashed #0f7395 2px;
 }
 figure{
     text-align: center;
@@ -53,6 +56,9 @@ address{
 ul{
     font-size: 1.1rem;
     text-align: center;
+}
+.ul-li-a{
+    margin-right: 40px;
 }
 li{
     display: inline;
