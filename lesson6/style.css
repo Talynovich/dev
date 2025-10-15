@@ -45,8 +45,13 @@ header{
 }
 
 #hero{
-    background-image: url("./img/bg.avif");
     height: calc(100vh - 29px);
+    /*background-image: url("./img/bg.avif");*/
+    /*background-position: center center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /* можно записать одним свойством */
+    background: url("./img/bg.avif") no-repeat center center/cover;
 }
 .hero-content{
     height: 100%;
