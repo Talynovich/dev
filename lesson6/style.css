@@ -36,7 +36,20 @@ footer{
     padding: 5px 5px;
     margin: 15px 15px;
     margin-bottom: 30px;
+    position: relative;
 }
+
+.news-title{
+    background-color: #47ff7b;
+    border-radius: 2px;
+    display: inline;
+    padding: 2px 7px;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
+    right: 6px;
+}
+
 .news-img {
     height: 150px;
 }
