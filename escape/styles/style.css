@@ -262,3 +262,9 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.footer{
+
+    background-color: rgba(35, 47, 56, 0.6);
+    padding: 27px 0px;
+}
