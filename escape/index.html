@@ -17,17 +17,22 @@
 <header class="header">
     <div class="top-nav container">
         <a href="#" class="logo">Escape.</a>
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Categories</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
+        <div class="top-menu">
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <div class="burger">
+            <span></span>
+        </div>
     </div>
     <div class="hero-text">
         <h2>Let's do it together.</h2>
         <p>We travel the world in search of stories. Come along for the ride.</p>
-        <button class="btn">View Latest Posts</button>
+        <a class="btn" href="#most-recent">View Latest Posts</a>
     </div>
 </header>
 <main>
@@ -51,7 +56,7 @@
                     <article class="post-card" style="background-image: url('./images/featured-1.png') ">
                         <h3>The Road Ahead</h3>
                         <p>The road ahead might be paved - it might not be.</p>
-                        <div class="meta-data">
+                        <div class="meta-post-data">
                             <div class="meta-data-author">
                                 <img src="./images/user.png" alt="Author">
                                 <span>Mat Vogels</span>
@@ -64,7 +69,7 @@
                     <article class="post-card" style="background-image: url('./images/featured-2.png')">
                         <h3>From Top Down</h3>
                         <p>Once a year, go someplace you’ve never been before.</p>
-                        <div class="meta-data">
+                        <div class="meta-post-data">
                             <div class="meta-data-author">
                                 <img src="./images/user.png" alt="Author">
                                 <span>Mat Vogels</span>
@@ -80,26 +85,30 @@
         <div class="container">
             <h2 class="section-title">Most Recent</h2>
             <div class="grid-container">
-                    <div class="col-3">
-                        <div class="recent-card">
-                            <img class="recent-card-img" src="./images/most-recent-1.png" alt="Photo">
-                            <div class="section-content">
-                                <h3>Still Standing Tall</h3>
-                                <p>Life begins at the end of your comfort zone.</p>
-                            </div>
-                            <div class="meta-data">
-                                <div class="meta-data-author">
-                                    <img src="./images/user.png" alt="">
-                                    <p>William Wong</p>
-                                </div>
-                                <div class="section-paragraph"><p>9/25/2015</p></div>
-                            </div>
-                        </div>
-                    </div>
                 <div class="col-3">
                     <div class="recent-card">
-                        <img class="recent-card-img" src="./images/most-recent-2.png" alt="Photo">
-                        <div class="section-content">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-1.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
+                            <h3>Still Standing Tall</h3>
+                            <p>Life begins at the end of your comfort zone.</p>
+                        </div>
+                        <div class="meta-data">
+                            <div class="meta-data-author">
+                                <img src="./images/user.png" alt="">
+                                <p>William Wong</p>
+                            </div>
+                            <time datetime="9/25/2015">9/25/2015</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="recent-card">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-2.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
                             <h3>Sunny Side Up</h3>
                             <p>No place is ever as bad as they tell you it’s going to be.</p>
                         </div>
@@ -108,14 +117,16 @@
                                 <img src="./images/user.png" alt="">
                                 <p>William Wong</p>
                             </div>
-                            <div class="section-paragraph"><p>9/25/2015</p></div>
+                            <time datetime="9/25/2015">9/25/2015</time>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="recent-card">
-                        <img class="recent-card-img" src="./images/most-recent-3.png" alt="Photo">
-                        <div class="section-content">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-3.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
                             <h3>Water Falls</h3>
                             <p>We travel not to escape life, but for life not to escape us.</p>
                         </div>
@@ -124,14 +135,16 @@
                                 <img src="./images/user.png" alt="">
                                 <p>William Wong</p>
                             </div>
-                            <div class="section-paragraph"><p>9/25/2015</p></div>
+                            <time datetime="9/25/2015">9/25/2015</time>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="recent-card">
-                        <img class="recent-card-img" src="./images/most-recent-4.png" alt="Photo">
-                        <div class="section-content">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-4.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
                             <h3>Through the Mist</h3>
                             <p>Travel makes you see what a tiny place you occupy in the world.</p>
                         </div>
@@ -140,14 +153,16 @@
                                 <img src="./images/user.png" alt="">
                                 <p>William Wong</p>
                             </div>
-                            <div class="section-paragraph"><p>9/25/2015</p></div>
+                            <time datetime="9/25/2015">9/25/2015</time>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="recent-card">
-                        <img class="recent-card-img" src="./images/most-recent-5.png" alt="Photo">
-                        <div class="section-content">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-5.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
                             <h3>Awaken Early</h3>
                             <p>Not all those who wander are lost.</p>
                         </div>
@@ -156,14 +171,16 @@
                                 <img src="./images/user.png" alt="">
                                 <p>William Wong</p>
                             </div>
-                            <div class="section-paragraph"><p>9/25/2015</p></div>
+                            <time datetime="9/25/2015">9/25/2015</time>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="recent-card">
-                        <img class="recent-card-img" src="./images/most-recent-6.png" alt="Photo">
-                        <div class="section-content">
+                        <div class="recent-card-img">
+                            <img class="recent-card-img" src="./images/most-recent-6.png" alt="Photo">
+                        </div>
+                        <div class="recent-card-content">
                             <h3>Try it Always</h3>
                             <p>The world is a book, and those who do not travel read only one page.</p>
                         </div>
@@ -172,7 +189,7 @@
                                 <img src="./images/user.png" alt="">
                                 <p>William Wong</p>
                             </div>
-                            <div class="section-paragraph"><p>9/25/2015</p></div>
+                            <time datetime="9/25/2015">9/25/2015</time>
                         </div>
                     </div>
                 </div>
@@ -182,15 +199,17 @@
 </main>
 <div class="bottom-wrapper">
     <section id="stay-in-touch">
-        <h2 class="section-title">Stay in Touch</h2>
-        <form action="" class="subscribe-from">
-            <input type="email" placeholder="Enter your email address" required>
-            <button class="submit">Submit</button>
-        </form>
+        <div class="container">
+            <h2 class="section-title">Stay in Touch</h2>
+            <form class="subscribe-from">
+                <input type="email" placeholder="Enter your email address" required>
+                <button class="submit">Submit</button>
+            </form>
+        </div>
     </section>
     <footer class="footer">
         <div class="container">
-            <div class="footer-container">
+            <div class="footer-content">
                 <a href="#" class="logo">Escape.</a>
                 <nav class="nav-links">
                     <a href="#">Home</a>
@@ -202,6 +221,11 @@
         </div>
     </footer>
 </div>
-
+<script>
+    document.querySelector('.burger').addEventListener('click', function () {
+        this.classList.toggle('active');
+        document.querySelector('.top-menu').classList.toggle('open');
+    })
+</script>
 </body>
 </html>
