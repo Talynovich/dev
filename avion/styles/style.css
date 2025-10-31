@@ -162,7 +162,11 @@ a {
     margin-bottom: 35px;
 }
 
-#new-ceramics h2 {
+#new-ceramics{
+    padding-bottom: 80px;
+}
+
+#new-ceramics h2, #our-products h2 {
     font-size: 32px;
     margin-bottom: 33px;
 }
@@ -211,7 +215,6 @@ a {
 
 #our-products h2 {
     font-size: 32px;
-    margin: 25px;
 }
 
 .grid-products {
@@ -277,4 +280,13 @@ a {
     padding: 17px 32px;
     border: none;
     background-color: rgba(249, 249, 249, 1);
+}
+
+#features{
+    padding: 72px 0 54px;
+}
+
+.feature-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
