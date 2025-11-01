@@ -420,3 +420,58 @@ input {
     display: flex;
     column-gap: 24px;
 }
+
+
+.burger{
+    display: none;
+    position: relative;
+    z-index: 100;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    height: 18px;
+}
+
+.burger span{
+    height: 2px;
+    width: 100%;
+    transform: scale(1);
+    background-color: rgba(42, 37, 75, 1);
+}
+
+.burger::before, .burger::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(42, 37, 75, 1);
+    transition: all 0.3s ease 0s;
+}
+
+.burger::before{top: 0}
+.burger::after{bottom: 0}
+
+.burger.active span {transform: scale(0)}
+
+.burger.active::before{
+    top: 50%;
+    transform: rotate(-45deg) translate(0, 50%);
+}
+.burger.active::after{
+    top: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+}
+
+.open{
+    display: flex !important;
+}
+
+
+@media screen and (max-width: 768px) {
+    .burger{
+        display: flex;
+    }
+    .header-nav{
+        display: none;
+    }
+}
