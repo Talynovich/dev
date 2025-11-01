@@ -33,6 +33,10 @@ a {
     text-decoration: none;
 }
 
+input {
+    border: none;
+}
+
 .container {
     max-width: 1310px;
     padding: 0 15px;
@@ -114,6 +118,18 @@ a {
     transition: 0.3s;
 }
 
+.btn-under-section button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(249, 249, 249, 1);
+}
+
+.btn-under-section button:hover{
+    background-color:rgba(42, 37, 75, 1);
+    color: white;
+}
+
 .btn-primary {
     color: white;
     background-color: rgba(249, 249, 249, 0.15);
@@ -122,11 +138,36 @@ a {
 .btn-secondary{
     background-color: rgba(249, 249, 249, 1);
     color: rgba(42, 37, 75, 1);
+    line-height: 150%;
+}
+
+.btn-form{
+    background-color: rgba(42, 37, 75, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.footer-btn{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.btn-form:hover{
+    background-color: rgb(106, 65, 181);
+    color: white;
+}
+
+.btn-secondary:hover{
+    background-color:rgba(42, 37, 75, 1);
+    color: white;
 }
 
 .btn-primary:hover {
-    background-color: white;
-    color: rgba(42, 37, 75, 1);;
+    color: rgba(42, 37, 75, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.footer-btn:hover{
+    background-color: rgb(106, 65, 181);
+    color: rgba(255, 255, 255, 1);
 }
 
 .hero-img {
@@ -213,14 +254,6 @@ a {
     justify-content: center;
 }
 
-.btn-under-section button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 32px;
-    background-color: rgba(249, 249, 249, 1);
-}
-
 #our-products h2 {
     font-size: 32px;
 }
@@ -254,12 +287,6 @@ a {
     background-color: rgba(249, 249, 249, 1);
     margin-top: 64px;
     padding: 52px 0 65px 0;
-}
-
-.btn-form{
-    padding: 16px 32px;
-    background-color: rgba(42, 37, 75, 1);
-    color: rgba(255, 255, 255, 1);
 }
 
 .flex-form{
@@ -336,4 +363,60 @@ a {
     right: 0;
     top: 0;
     background: url("../images/feature-img.png") no-repeat center center/cover;
+}
+
+.footer{
+    background-color: rgba(42, 37, 75, 1);
+    color: white;
+}
+
+.footer-top{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    padding: 58px 0px 48px;
+    border-bottom: 1px solid rgba(78, 77, 147, 1);
+}
+
+.footer-item-title{
+    margin-bottom: 12px;
+}
+
+.footer-menu-list-item a{
+    font-size: 14px;
+}
+
+.footer-menu-list{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-item form{
+    display: flex;
+}
+
+.footer-item input{
+    flex: 1;
+    padding: 17px 32px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#email-footer-input{
+    color: white;
+ }
+
+#email-footer-input::placeholder{
+    color: white;
+}
+
+.footer-bottom{
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links{
+    display: flex;
+    column-gap: 24px;
 }
