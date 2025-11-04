@@ -64,7 +64,7 @@
 </header>
 <main>
     <section id="hero">
-        <div class="container hero-grid">
+        <div class="container hero-grid container-desktop-hidden">
             <div class="hero-content">
                 <h1>The furniture brand for the future, with timeless designs</h1>
                 <button class="btn-primary btn">View collection</button>
@@ -197,7 +197,7 @@
         <div class="container">
             <div class="feature-grid">
                 <div class="feature-content">
-                    <h2>From a studio in London to a global brand with
+                    <h2>From a studio in London to a global brand with <br class="desktop-hidden">
                         over 400 outlets</h2>
                     <p class="feature-info">When we started Avion, the idea was simple. Make high quality furniture
                         affordable and available for
@@ -316,8 +316,9 @@
     </div>
 </footer>
 
+
 <script>
-    document.querySelector('.burger').addEventListener('click', function (){
+    document.querySelector('.burger').addEventListener('click', function () {
         this.classList.toggle('active');
         document.querySelector('.nav').classList.toggle('open');
     })
