@@ -479,12 +479,16 @@ input {
         display: flex;
     }
 
+    .overflow-hidden{
+        overflow: hidden;
+    }
+
     .header-nav {
         display: none;
     }
     .open{
         height: 100vh;
-
+        overflow:hidden;
     }
 
     .open ul{
