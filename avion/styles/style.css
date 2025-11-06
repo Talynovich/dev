@@ -488,12 +488,12 @@ input {
     }
 
     .hero-img {
-        display: none;
+        display: block;
     }
 
     .hero-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .hero-content button {
@@ -530,10 +530,6 @@ input {
         margin-bottom: 35px;
     }
 
-    #form {
-        padding: 0 0 0 0;
-    }
-
     .email {
         display: flex;
     }
@@ -565,6 +561,11 @@ input {
         font-size: 14px;
         max-width: 100%;
         margin-bottom: 12px;
+    }
+
+    .feature-btn button {
+        display: flex;
+        justify-content: center;
     }
 
     .feature-content .btn-secondary {
@@ -659,4 +660,99 @@ input {
         justify-content: flex-start;
         gap: 22px;
     }
+
+    .hero-img {
+        display: none;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #new-ceramics h2 {
+        font-size: 20px;
+    }
+
+    .ceramics-item:nth-child(1) .ceramic-img {
+        height: 201px;
+    }
+
+    .ceramics-item:nth-child(2) .ceramic-img {
+        height: 201px;
+    }
+
+    .ceramics-item:nth-child(3) .ceramic-img {
+        height: 201px;
+    }
+
+    .ceramics-item:nth-child(4) .ceramic-img {
+        height: 201px;
+    }
+
+    .ceramics-item, .products-item h3 {
+        font-size: 20px;
+    }
+
+    .ceramics-item p {
+        font-size: 18px;
+    }
+
+    .btn-under-section button {
+        width: 100%;
+    }
+
+    #our-products h2 {
+        font-size: 20px;
+    }
+
+    .grid-products {
+        margin-bottom: 32px;
+    }
+
+    .products-item:nth-child(1) .products-img {
+        height: 251px;
+    }
+
+    .products-item:nth-child(2) .products-img {
+        height: 251px;
+    }
+
+    .products-item:nth-child(3) .products-img {
+        height: 251px;
+    }
+
+    .products-item h3 {
+        font-size: 20px;
+    }
+
+    .products-item p {
+        font-size: 18px;
+    }
+
+    #form {
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .flex-form h2 {
+        font-size: 20px;
+        text-align: start;
+        width: 329px;
+    }
+
+    .flex-form p {
+        text-align: start;
+        font-size: 14px;
+        width: 329px;
+    }
+
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .feature-grid {
+        height: 735px;
+    }
+
 }
