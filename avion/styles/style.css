@@ -670,6 +670,10 @@ input {
         grid-template-columns: 1fr;
     }
 
+    #seller-points h2{
+        text-align: start;
+    }
+
     #new-ceramics h2 {
         font-size: 20px;
     }
