@@ -275,19 +275,19 @@ input {
     margin-bottom: 35px;
 }
 
-.products-item:nth-child(1) .products-img {
+.background-1 {
     height: 375px;
     background: url("../images/sofa.png") no-repeat center center/cover;
     margin-bottom: 24px;
 }
 
-.products-item:nth-child(2) .products-img {
+.background-2 {
     height: 375px;
     background: url("../images/parent.png") no-repeat center center/cover;
     margin-bottom: 24px;
 }
 
-.products-item:nth-child(3) .products-img {
+.background-3 {
     height: 375px;
     background: url("../images/chair.png") no-repeat center center/cover;
     margin-bottom: 24px;
@@ -573,7 +573,6 @@ input {
     }
 
     .feature-content:nth-child(1) .feature-info {
-        /*font-size: 14px;*/
         margin-bottom: 25px;
     }
 
@@ -670,7 +669,7 @@ input {
         grid-template-columns: 1fr;
     }
 
-    #seller-points h2{
+    #seller-points h2 {
         text-align: start;
     }
 
@@ -714,15 +713,15 @@ input {
         margin-bottom: 32px;
     }
 
-    .products-item:nth-child(1) .products-img {
+    .background-1 {
         height: 251px;
     }
 
-    .products-item:nth-child(2) .products-img {
+    .background-2 {
         height: 251px;
     }
 
-    .products-item:nth-child(3) .products-img {
+    .background-3 {
         height: 251px;
     }
 
