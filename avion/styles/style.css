@@ -41,6 +41,10 @@ input {
     border: none;
 }
 
+.d-none{
+    display: none;
+}
+
 .container {
     max-width: 1310px;
     padding: 0 15px;
@@ -67,6 +71,10 @@ input {
 
 .search {
     grid-column: 6 span;
+}
+
+.search a{
+    display: flex;
 }
 
 .header-links {
@@ -433,7 +441,7 @@ input {
 }
 
 .burger span {
-    height: 2px;
+    height: 1px;
     width: 100%;
     transform: scale(1);
     background-color: rgba(42, 37, 75, 1);
@@ -442,7 +450,7 @@ input {
 .burger::before, .burger::after {
     content: "";
     position: absolute;
-    height: 2px;
+    height: 1px;
     width: 100%;
     background-color: rgba(42, 37, 75, 1);
     transition: all 0.3s ease 0s;
@@ -461,13 +469,15 @@ input {
 }
 
 .burger.active::before {
-    top: 50%;
-    transform: rotate(-45deg) translate(0, 50%);
+    top: 40%;
+    height: 2px;
+    transform: rotate(45deg);
 }
 
 .burger.active::after {
-    top: 50%;
-    transform: rotate(45deg) translate(0, 50%);
+    top: 40%;
+    height: 2px;
+    transform: rotate(-45deg);
 }
 
 .open {
