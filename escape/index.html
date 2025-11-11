@@ -225,6 +225,16 @@
     document.querySelector('.burger').addEventListener('click', function () {
         this.classList.toggle('active');
         document.querySelector('.top-menu').classList.toggle('open');
+        document.querySelector('body').classList.toggle('overflow-hidden');
+        document.querySelector('.logo').classList.toggle('logo-none');
+        document.querySelector('.top-nav').classList.toggle('container-burger');
+        document.querySelectorAll('.nav-links').forEach(function (item) {
+            item.addEventListener('click', function () {
+                document.querySelector('.burger').classList.remove('active');
+                document.querySelector('.header-nav').classList.remove('open');
+                document.querySelector('body').classList.remove('overflow-hidden');
+            });
+        });
     })
 </script>
 </body>

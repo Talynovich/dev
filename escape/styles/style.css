@@ -13,6 +13,20 @@ body {
     background-color: #F7F7F7;
 }
 
+.logo-none{
+    display: none;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+
+.container-burger{
+    padding: 0 !important;
+}
+
+a{
+    color: inherit;
+}
 .container {
     max-width: 970px;
     margin: 0 auto;
@@ -319,7 +333,11 @@ body {
     z-index: 100;
     align-items: center;
     width: 30px;
-    height: 15px;
+    height: 33px;
+}
+
+.open{
+
 }
 
 .burger span {
@@ -339,11 +357,11 @@ body {
 }
 
 .burger::before {
-    top: 0;
+    top: 8px;
 }
 
 .burger::after {
-    bottom: 0;
+    bottom: 8px;
 }
 
 .burger.active span {
