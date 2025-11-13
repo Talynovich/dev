@@ -21,3 +21,19 @@ console.log(typeof undefinedValue)
 console.log( initialNumber)
 console.log( initialString)
 
+// step 2
+
+let a = 25
+let b = 7
+// let c = (a + b)
+// let c = (a - b)
+// let c = (a * b)
+// let c = (a / b)
+// let c = (a % b)
+// let c = (a ** b)
+let radius = 5
+let PI = 3.14159
+let area = PI * (radius ** 2);
+console.log(area)
+
+
