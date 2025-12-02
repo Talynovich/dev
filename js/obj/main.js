@@ -72,11 +72,11 @@ console.log(calculateTotal([{ price: 10, quantity: 2 }, { price: 5, quantity: 3 
 const getNames = (users) => {
     let result = []
     for (let i = 0; i < users.length; i++){
-       result.push(Object.values(users[i]))
+       result.push((users[i].name))
     }
     return result
 }
-console.log(getNames([{ name: 'Anna' }, { name: 'Samat' }]))
+console.log(getNames([{ name: 'Anna' }, { name: 'Samat' }]), "Thanks ;)")
 
 
 
