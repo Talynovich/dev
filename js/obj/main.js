@@ -76,7 +76,28 @@ const getNames = (users) => {
     }
     return result
 }
-console.log(getNames([{ name: 'Anna' }, { name: 'Samat' }]), "Thanks ;)")
+console.log(getNames([{ name: 'Anna' }, { name: 'Samat' }]))
+
+// 16
+const employess = [
+    {name: "Анна", department: "IT"},
+    {name: "Борис", department: "HR"},
+    {name: "Светлена", department: "IT"}
+]
+const keyGroup = "department"
+
+const groupBy = (empl, key) => {
+    return empl.reduce((acc, el) => {
+        const groupKey = el[key]
+        if (!acc[groupKey]) {
+            acc[groupKey] = []
+        }
+        acc[groupKey].push(el)
+        return acc
+
+    }, [])
+}
+console.log(groupBy(employess, keyGroup))
 
 
 
