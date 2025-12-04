@@ -99,5 +99,20 @@ const groupBy = (empl, key) => {
 }
 console.log(groupBy(employess, keyGroup))
 
+// 17
+const removeProperty = (obj, key) => {
+    delete obj[key]
+    return obj
+}
+console.log(removeProperty({ name: 'Samat', age: 30, city: 'Bishkek' }, 'age'), `<<<<`)
+
+// 18
+const flatten = arr => {
+    return arr.reduce((acc, el) => {
+        return acc.concat(el)
+    }, [])
+}
+console.log(flatten([[1, 2, 3], [4, 5]]))
+
 
 
