@@ -1,0 +1,8 @@
+.rating-star{
+    cursor: pointer;
+    font-size: 36px;
+    color: black;
+}
+.rating-star.selected{
+    color: red;
+}
