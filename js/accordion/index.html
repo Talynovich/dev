@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="accordion">
+    <h3 class="accordion-header" data-index="1">Секция 1: О DOM</h3>
+    <div class="accordion-content hidden">
+        <p>DOM – это программный интерфейс для HTML-документов. Он позволяет JS взаимодействовать со страницей.</p>
+    </div>
+
+    <h3 class="accordion-header" data-index="2">Секция 2: События</h3>
+    <div class="accordion-content hidden">
+        <p>Для обработки кликов используется addEventListener. События всплывают по дереву DOM.</p>
+    </div>
+
+    <h3 class="accordion-header" data-index="3">Секция 3: Делегирование</h3>
+    <div class="accordion-content hidden">
+        <p>Один обработчик на родителе вместо множества обработчиков на детях, что экономит память.</p>
+    </div>
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>
