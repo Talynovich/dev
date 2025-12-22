@@ -2,16 +2,18 @@ const btn = document.querySelector('button')
 const modal = document.querySelector('.modal')
 const closeBtn = document.querySelector('.closeBtn')
 
+
+
 btn.addEventListener('click', () => {
-    modal.style.display = 'flex'
+    modal.classList.add('hidden')
 })
 
 closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none'
+    modal.classList.remove('hidden')
 })
 
 window.addEventListener('click', event => {
     if (event.target == modal){
-        modal.style.display = 'none'
+        modal.classList.remove('hidden')
     }
 })

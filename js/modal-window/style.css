@@ -27,6 +27,9 @@ button {
     float: right;
     font-size:20px;
 }
+.modal.hidden {
+    display: flex;
+}
 
 .modal {
     background: rgba(0,0,0, 0.2);
