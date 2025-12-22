@@ -30,7 +30,7 @@ button {
 
 .modal {
     background: rgba(0,0,0, 0.2);
-    display: flex;
+    display: none;
     justify-content: center;
     top: 0;
     bottom: 0;
