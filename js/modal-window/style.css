@@ -27,7 +27,7 @@ button {
     float: right;
     font-size:20px;
 }
-.modal.hidden {
+.modal.modal-visible {
     display: flex;
 }
 
