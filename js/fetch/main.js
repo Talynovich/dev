@@ -48,3 +48,42 @@ const getAllplanets = async () => {
     }
 }
 getAllplanets()
+
+const species = document.querySelector('.species')
+fetch('https://swapi.info/api/species')
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((item) => {
+            const li = document.createElement('li')
+            li.innerText = item.name
+            species.append(li)
+        })
+    }).catch((error) => {
+        console.error(error)
+})
+
+const vehicles = document.querySelector('.vehicles')
+fetch('https://swapi.info/api/vehicles')
+    .then((res)=>res.json())
+    .then((data)=>{
+    data.forEach((item)=>{
+        const li = document.createElement('li')
+        li.innerText = item.name
+        vehicles.append(li)
+    })
+}).catch((error) => {
+    console.error(error)
+})
+
+const starships = document.querySelector('.starships')
+fetch('https://swapi.info/api/vehicles')
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((item)=>{
+                const li = document.createElement('li')
+                li.innerText = item.name
+                starships.append(li)
+            })
+        }).catch((error) => {
+            console.error(error)
+})
