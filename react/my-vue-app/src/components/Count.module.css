@@ -1,0 +1,15 @@
+.count{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.btn{
+    background-color: #535bf2;
+    padding: 10px 20px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 20px;
+}
+.container.count-container{
+    display: none;
+    background-color: #535bf2;
+}
