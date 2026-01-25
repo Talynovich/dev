@@ -1,6 +1,8 @@
 import classNames from 'classnames'
+import { v4 as uuidv4 } from 'uuid'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import Input from './shared/ui/input'
 
 const data = [
   {
@@ -21,18 +23,16 @@ const data = [
 ]
 
 function App() {
-  const [todos, setTodos] = useState(data)
   const [value, setValue] = useState('')
+  const [todos, setTodos] = useState([])
 
   const handleChange = (e) => {
     setValue(e.target.value.trim())
   }
   const addNewTodo = () => {
     if (value !== '') {
-      setTodos([
-        ...todos,
-        { id: todos.length + 1, title: value, completed: false },
-      ])
+      localStorage.setItem('todos', JSON.stringify(setTodos))
+      setTodos([...todos, { id: uuidv4(), title: value, completed: false }])
       setValue('')
     }
   }
@@ -41,19 +41,34 @@ function App() {
     setTodos(newTodos)
   }
 
+  const handleAddTodo = (id) => {
+    const updatesTodos = todos.map((item) => {
+      if (item.id === id) {
+        return { ...item, completed: !item.completed }
+      }
+      return item
+    })
+    setTodos(updatesTodos)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      addNewTodo()
+    }
+  }
+
+  // sessionStorage.setItem('test', 'testvalue')
+
   return (
     <>
       <div className="container p-4">
         <div className="row">
           <div className="col-4 offset-4">
             <div className="d-flex mb-3">
-              <input
-                type="text"
-                className="form-control mb-2 mr-sm-2"
-                id="todo"
-                placeholder="add todo mame"
+              <Input
                 value={value}
                 onChange={handleChange}
+                handleKeyDown={handleKeyDown}
               />
               <button
                 type="submit"
@@ -71,22 +86,30 @@ function App() {
                     className={classNames(
                       `list-group-item d-flex justify-content-between align-items-center`,
                       {
-                        'bg-success': todo.completed,
+                        'bg-secondary-subtle': todo.completed,
                       }
                     )}
                   >
-                    <span>{todo.title}</span>
+                    <span>
+                      {todo.title} {todo.completed && '✅'}
+                    </span>
                     <div>
-                      <button type="button" className="btn btn-success me-2">
-                        Done
-                      </button>
                       <button
                         type="button"
-                        className="btn btn-danger"
-                        onClick={() => handleDeleteTodo(todo.id)}
+                        className="btn btn-success me-2"
+                        onClick={() => handleAddTodo(todo.id)}
                       >
-                        Delete
+                        {todo.completed ? 'Uncheck' : 'Done'}
                       </button>
+                      {!todo.completed && (
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => handleDeleteTodo(todo.id)}
+                        >
+                          Delete
+                        </button>
+                      )}
                     </div>
                   </li>
                 )
