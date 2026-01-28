@@ -1,9 +1,9 @@
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import TodoInput from './components/TodoInput'
 import TodoList from './components/TodoList'
-import { LoadTodos, saveTodos } from './utils/storage.js'
+import {LoadTodos, saveTodos} from './utils/storage.js'
 
 const data = [
   {
@@ -39,41 +39,54 @@ function App() {
   }
 
   const addNewTodo = (title) => {
-    const newTodos = [...todos, { id: uuidv4(), title, commpleted: false }]
-    setTodos(newTodos)
-    saveTodos(newTodos)
+    fetch(`https://697901e2cd4fe130e3daecce.mockapi.io/api/todos/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: title,
+        completed: false,
+      }),
+    }).then(res => res.json()).then((createdTodo) => {
+      const newTodos = [...todos, createdTodo]
+      console.log(newTodos)
+      setTodos(newTodos)
+      saveTodos(newTodos)
+    })
+    // const newTodos = [...todos, {title, commpleted: false}]
   }
 
-  const handleAddTodo = (id, newStatus) => {
-    // fetch(`https://697901e2cd4fe130e3daecce.mockapi.io/api/todos/${id}`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ completed: newStatus }),
-    // })
-    //   .then((res) => res.json())
-    //   .then(() => {})
-    const updatesTodos = todos.map((item) =>
-      item.id === id ? { ...item, completed: !item.completed } : item
-    )
-
-    setTodos(updatesTodos)
-    saveTodos(updatesTodos)
+  const handleAddTodo = (id) => {
+    const currentTodo = todos.find(item => item.id === id)
+    fetch(`https://697901e2cd4fe130e3daecce.mockapi.io/api/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        completed: !currentTodo.completed
+      })
+    }).then(res => res.json()).then(response => {
+      const updatedTodos = todos.map(item => {
+        return item.id === id ? response : item
+      })
+      setTodos(updatedTodos)
+    })
   }
 
   useEffect(() => {
     fetch('https://697901e2cd4fe130e3daecce.mockapi.io/api/todos')
       .then((res) => res.json())
       .then((data) => setTodos(data))
-  })
+  }, [])
 
   return (
     <>
       <div className="container p-4">
         <div className="row">
           <div className="col-4 offset-4">
-            <TodoInput onAddTodo={addNewTodo} />
+            <TodoInput onAddTodo={addNewTodo}/>
             <TodoList
               todos={todos}
               onToggle={handleAddTodo}
