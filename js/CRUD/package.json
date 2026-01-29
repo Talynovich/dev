@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "bootstrap": "^5.3.8",
+    "classnames": "^2.5.1",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^4.1.18",
+    "uuid": "^13.0.0"
+  }
+}
