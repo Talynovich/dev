@@ -1,7 +1,41 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
 
-const TodoList = ({ todo, onToggle, onDelete }) => {
+const TodoList = ({ todo, onToggle, onDelete, onChange }) => {
+  const [editTodo, setEditTodo] = useState(null)
+
+  if (editTodo !== null) {
+    return (
+      <li
+        key={todo.id}
+        className="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <input
+          type="text"
+          placeholder="Edit input"
+          value={editTodo.title}
+          autoFocus={true}
+          onChange={(e) => setEditTodo(e.target.value)}
+        />
+        <div className="flex">
+          <button
+            className="btn btn-success ms-2"
+            onClick={() => onChange(title, todo.id)}
+          >
+            Save
+          </button>
+          <button
+            className="btn btn-dark ms-2"
+            onClick={() => setEditTodo(null)}
+          >
+            Cancel
+          </button>
+        </div>
+      </li>
+    )
+  }
+  {
+  }
   return (
     <li
       key={todo.id}
@@ -23,13 +57,21 @@ const TodoList = ({ todo, onToggle, onDelete }) => {
         >
           {todo.completed ? 'Uncheck' : 'Done'}
         </button>
-        {!todo.completed && (
+        {todo.completed ? (
           <button
             type="button"
             className="btn btn-danger"
             onClick={() => onDelete(todo.id)}
           >
             Delete
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={() => setEditTodo(todo)}
+          >
+            Edit
           </button>
         )}
       </div>

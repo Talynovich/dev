@@ -43,6 +43,16 @@ function App() {
     setTodos(updatedTodos)
   }
 
+  const saveChange = async (title1, id) => {
+    const currentTodo = todos.find((item) => item.id === id)
+    const { data: response } = await axios.put(`${baseurl}/api/todos/${id}`, {
+      title: title,
+    })
+    const updatedTodos = todos.map((item) => (item.id === id ? response : item))
+    // setTodos(updatedTodos)
+    console.log(title1, id)
+  }
+
   useEffect(() => {
     axios(`${baseurl}/api/todos`)
       .then((data) => setTodos(data.data))
@@ -81,6 +91,7 @@ function App() {
                 todos={todos}
                 onToggle={handleAddTodo}
                 onDelete={handleDeleteTodo}
+                onChange={saveChange}
               />
             )}
           </div>
