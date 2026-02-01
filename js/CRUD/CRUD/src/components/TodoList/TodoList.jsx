@@ -12,6 +12,7 @@ const TodoList = ({ todos, onToggle, onDelete, onChange }) => {
             onToggle={onToggle}
             onDelete={onDelete}
             onChange={onChange}
+            key={todo.id}
           />
         )
       })}

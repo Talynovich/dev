@@ -4,6 +4,13 @@ import React, { useState } from 'react'
 const TodoList = ({ todo, onToggle, onDelete, onChange }) => {
   const [editTodo, setEditTodo] = useState(null)
 
+  const inputKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onChange(todo.id, editTodo)
+      setEditTodo(null)
+    }
+  }
+
   if (editTodo !== null) {
     return (
       <li
@@ -16,11 +23,15 @@ const TodoList = ({ todo, onToggle, onDelete, onChange }) => {
           value={editTodo.title}
           autoFocus={true}
           onChange={(e) => setEditTodo(e.target.value)}
+          onKeyDown={(e) => inputKeyDown(e)}
         />
         <div className="flex">
           <button
             className="btn btn-success ms-2"
-            onClick={() => onChange(title, todo.id)}
+            onClick={() => {
+              onChange(todo.id, editTodo)
+              setEditTodo(null)
+            }}
           >
             Save
           </button>

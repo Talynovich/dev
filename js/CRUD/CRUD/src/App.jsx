@@ -28,7 +28,6 @@ function App() {
       const { data } = await axios.post(`${baseurl}/api/todos/`, newTodo)
       saveTodos([...todos, data])
       setTodos([...todos, data])
-      console.log(data)
     } catch (error) {
       console.log(error)
     }
@@ -43,14 +42,12 @@ function App() {
     setTodos(updatedTodos)
   }
 
-  const saveChange = async (title1, id) => {
-    const currentTodo = todos.find((item) => item.id === id)
+  const saveChange = async (id, editTodo) => {
     const { data: response } = await axios.put(`${baseurl}/api/todos/${id}`, {
-      title: title,
+      title: editTodo,
     })
     const updatedTodos = todos.map((item) => (item.id === id ? response : item))
-    // setTodos(updatedTodos)
-    console.log(title1, id)
+    setTodos(updatedTodos)
   }
 
   useEffect(() => {
