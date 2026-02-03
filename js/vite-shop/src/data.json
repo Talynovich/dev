@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Беспроводные наушники SoundPro X",
+    "price": 12500,
+    "category": "Электроника",
+    "rating": 4.8,
+    "stock": 15,
+    "image": "https://example.com/images/headphones.jpg",
+    "description": "Наушники с активным шумоподавлением и 30 часами работы."
+  },
+  {
+    "id": 2,
+    "name": "Кофемашина Barista Home",
+    "price": 45900,
+    "category": "Бытовая техника",
+    "rating": 4.5,
+    "stock": 5,
+    "image": "https://example.com/images/coffee.jpg",
+    "description": "Автоматическая кофемашина для идеального эспрессо и капучино."
+  },
+  {
+    "id": 3,
+    "name": "Кроссовки Urban Runner",
+    "price": 8200,
+    "category": "Обувь",
+    "rating": 4.2,
+    "stock": 22,
+    "image": "https://example.com/images/sneakers.jpg",
+    "description": "Легкие дышащие кроссовки для бега в городских условиях."
+  },
+  {
+    "id": 4,
+    "name": "Умные часы FitPulse 5",
+    "price": 18900,
+    "category": "Аксессуары",
+    "rating": 4.7,
+    "stock": 10,
+    "image": "https://example.com/images/watch.jpg",
+    "description": "Мониторинг пульса, сна и уровня кислорода в крови 24/7."
+  },
+  {
+    "id": 5,
+    "name": "Рюкзак для ноутбука CityGuard",
+    "price": 5400,
+    "category": "Аксессуары",
+    "rating": 4.9,
+    "stock": 30,
+    "image": "https://example.com/images/backpack.jpg",
+    "description": "Водонепроницаемый рюкзак с защитным отделением для ноутбука 15.6\"."
+  },
+  {
+    "id": 6,
+    "name": "Игровая клавиатура Mechanical Glow",
+    "price": 7600,
+    "category": "Компьютеры",
+    "rating": 4.6,
+    "stock": 8,
+    "image": "https://example.com/images/keyboard.jpg",
+    "description": "Механическая клавиатура с настраиваемой RGB-подсветкой."
+  },
+  {
+    "id": 7,
+    "name": "Набор для йоги ZenSet",
+    "price": 3200,
+    "category": "Спорт",
+    "rating": 4.4,
+    "stock": 12,
+    "image": "https://example.com/images/yoga.jpg",
+    "description": "Коврик, два блока и ремень для комфортных занятий йогой."
+  },
+  {
+    "id": 8,
+    "name": "Планшет VisionTab 10",
+    "price": 34500,
+    "category": "Электроника",
+    "rating": 4.3,
+    "stock": 4,
+    "image": "https://example.com/images/tablet.jpg",
+    "description": "Яркий 10-дюймовый экран и мощный процессор для работы и кино."
+  },
+  {
+    "id": 9,
+    "name": "Настольная лампа Minimalist",
+    "price": 2800,
+    "category": "Дом",
+    "rating": 4.1,
+    "stock": 18,
+    "image": "https://example.com/images/lamp.jpg",
+    "description": "Стильная светодиодная лампа с регулировкой яркости."
+  },
+  {
+    "id": 10,
+    "name": "Внешний аккумулятор PowerUp 20k",
+    "price": 4100,
+    "category": "Электроника",
+    "rating": 4.8,
+    "stock": 50,
+    "image": "https://example.com/images/powerbank.jpg",
+    "description": "Емкость 20 000 мАч, поддержка быстрой зарядки нескольких устройств."
+  }
+]
