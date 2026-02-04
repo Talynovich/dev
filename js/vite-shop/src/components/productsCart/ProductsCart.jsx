@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ProductsCart = ({ product, onFavorite, isFavorite }) => {
+const ProductsCart = ({ product, onFavorite, isFavorite, onCarts }) => {
   const [isFavorite1, setIsFavorite] = useState(isFavorite)
 
   return (
@@ -59,6 +59,7 @@ const ProductsCart = ({ product, onFavorite, isFavorite }) => {
 
           <button
             type="button"
+            onClick={() => {onCarts(product)}}
             className="
               rounded-md
               bg-gray-900

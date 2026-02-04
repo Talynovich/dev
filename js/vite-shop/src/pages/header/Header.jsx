@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 
 const Header = () => {
   const favorites = useSelector((state) => state.products.favourites)
+  const carts = useSelector((state) => state.products.carts)
   return (
     <header className="w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl">
@@ -23,7 +24,7 @@ const Header = () => {
               to="/cart"
               className="text-gray-600 hover:text-gray-900 transition"
             >
-              Cart
+              Cart ({carts.length})
             </Link>
             <Link
               to="/favorites"
