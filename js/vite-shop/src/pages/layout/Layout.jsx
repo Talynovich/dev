@@ -1,20 +1,20 @@
-import React from 'react';
-import Header from "../header";
-import Footer from "../footer";
-import {Outlet} from "react-router";
+import React from 'react'
+import Header from '../headerPage'
+import Footer from '../footerPage'
+import { Outlet } from 'react-router'
 
 const Layout = () => {
   return (
     <>
-    <Header />
-        <main>
-          <div className="mx-auto w-full max-w-7xl px-4">
-            <Outlet />
-          </div>
-        </main>
+      <Header />
+      <main>
+        <div className="mx-auto w-full max-w-7xl px-4">
+          <Outlet />
+        </div>
+      </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

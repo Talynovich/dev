@@ -3,16 +3,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import ProductsCart from '../../components/productsCart'
 import { clearFavorites, toggleFavorites } from '../../store/productsSlice'
 import { Link } from 'react-router'
+import { addToCart } from '../../store/cartSlice.js'
 
-const Favorites = () => {
+const FavoritesPage = () => {
   const favorites = useSelector((state) => state.products.favourites)
   const dispatch = useDispatch()
+
   const handleFavorite = (current) => {
     dispatch(toggleFavorites(current))
   }
 
   const handleClearFavorites = () => {
     dispatch(clearFavorites())
+  }
+
+  const handleAddToCart = () => {
+    dispatch(handleAddToCart())
   }
 
   if (favorites.length === 0) {
@@ -38,7 +44,7 @@ const Favorites = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-3xl font-extrabold text-slate-900">
-            Наши товары
+            Ваши товары
           </h2>
 
           <button
@@ -84,4 +90,4 @@ const Favorites = () => {
   )
 }
 
-export default Favorites
+export default FavoritesPage

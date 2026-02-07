@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const ProductsCart = ({ product, onFavorite, isFavorite, onCarts }) => {
-  const [isFavorite1, setIsFavorite] = useState(isFavorite)
+const ProductsCart = ({ product, onFavorite, isFavorite, handleAddToCart }) => {
+  const [Favorite, setIsFavorite] = useState(isFavorite)
 
   return (
     <div className="flex flex-col rounded-lg border border-gray-200 bg-white transition hover:bg-gray-50 shadow-sm hover:shadow-md duration-300 relative">
@@ -33,12 +33,9 @@ const ProductsCart = ({ product, onFavorite, isFavorite, onCarts }) => {
       </button>
       <div className="relative aspect-square bg-gray-100 overflow-hidden rounded-t-lg">
         <img
-          src={product.image}
+          src="https://picsum.photos/200/300"
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) =>
-            (e.currentTarget.src = 'https://placehold.co/400x400?text=No+Image')
-          }
         />
       </div>
       <div className="flex flex-col flex-grow p-4">
@@ -54,12 +51,12 @@ const ProductsCart = ({ product, onFavorite, isFavorite, onCarts }) => {
 
         <div className="mt-auto flex items-center justify-between">
           <span className="text-lg font-semibold text-gray-900">
-            {product.price.toLocaleString()} ₽
+            {product.price} ₽
           </span>
 
           <button
             type="button"
-            onClick={() => {onCarts(product)}}
+            onClick={() => handleAddToCart(product)}
             className="
               rounded-md
               bg-gray-900

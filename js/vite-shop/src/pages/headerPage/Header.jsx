@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 const Header = () => {
   const favorites = useSelector((state) => state.products.favourites)
-  const carts = useSelector((state) => state.products.carts)
+  const carts = useSelector((state) => state.cart.items)
   return (
     <header className="w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl">

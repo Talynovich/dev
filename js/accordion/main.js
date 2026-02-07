@@ -1,4 +1,4 @@
-const allHeaders = document.querySelectorAll('.accordion-header')
+const allHeaders = document.querySelectorAll('.accordion-headerPage')
 const allContents = document.querySelectorAll('.accordion-content')
 const accordion = document.querySelector('#accordion')
 
@@ -12,7 +12,7 @@ const accordion = document.querySelector('#accordion')
 // })
 
 accordion.addEventListener('click', event => {
-    if (event.target.classList.contains('accordion-header')){
+    if (event.target.classList.contains('accordion-headerPage')){
         allContents.forEach(el => {
             el.classList.add('hidden')
         })

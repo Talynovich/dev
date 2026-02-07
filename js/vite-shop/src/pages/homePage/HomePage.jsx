@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import ProductsCart from '../../components/productsCart'
 import SearchComponents from '../../components/searchComponents'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleCarts, toggleFavorites } from '../../store/productsSlice.js'
+import { toggleFavorites } from '../../store/productsSlice.js'
+import { addToCart } from '../../store/cartSlice.js'
 
 const HomePage = () => {
   const products = useSelector((store) => store.products.products)
@@ -22,8 +23,8 @@ const HomePage = () => {
     dispatch(toggleFavorites(current))
   }
 
-  const handleCarts = (current) => {
-    dispatch(toggleCarts(current))
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
   }
 
   return (
@@ -41,8 +42,8 @@ const HomePage = () => {
                 key={product.id}
                 product={product}
                 onFavorite={handleFavorite}
-                onCarts={handleCarts}
                 isFavorite={isFavorite(product.id)}
+                handleAddToCart={handleAddToCart}
               />
             ))}
           </div>
