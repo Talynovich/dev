@@ -23,7 +23,8 @@ const CartPage = () => {
     )
   }
   const totalPrice = cartsState.reduce((acc, el) => {
-    return acc + el.product.price * el.quantity
+    const res = acc + el.product.price * el.quantity
+    return Math.round(res)
   }, 0)
   return (
     <div className="min-h-screen bg-white">
@@ -49,7 +50,7 @@ const CartPage = () => {
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>{item.product.name}</h3>
                           <p className="ml-4">
-                            {item.product.price * item.quantity} ₽
+                            {Math.round(item.product.price * item.quantity)} ₽
                           </p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500 font-light">
@@ -126,25 +127,25 @@ const CartPage = () => {
                 </div>
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Скидка 10%</span>
-                  <span className="text-red-600">- {totalPrice * 0.1} ₽</span>
+                  <span className="text-red-600">- {totalPrice} ₽</span>
                 </div>
                 <hr className="border-gray-200" />
                 <div className="flex items-center justify-between text-xl font-bold text-gray-900">
                   <span>Total</span>
-                  <span>{totalPrice * 0.9} ₽</span>
+                  <span>{totalPrice} ₽</span>
                 </div>
               </div>
 
-              <button className="mt-6 w-full rounded-md bg-gray-900 py-3 px-4 text-white font-medium hover:bg-gray-800 transition active:scale-[0.98]">
-                Проверить
+              <button className="mt-6 w-full rounded-md bg-danger py-3 px-4 text-white font-medium hover:bg-gray-800 transition active:scale-[0.98]">
+                Купить
               </button>
 
               <div className="mt-4 text-center">
                 <Link
-                  to="#"
+                  to="/"
                   className="text-sm text-gray-500 hover:text-gray-900 transition underline underline-offset-4"
                 >
-                  Продолжить
+                  Продолжить покупки
                 </Link>
               </div>
             </div>

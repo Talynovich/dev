@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductsCart from '../../components/productsCart'
 import SearchComponents from '../../components/searchComponents'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleFavorites } from '../../store/productsSlice.js'
+import { fetchProducts, toggleFavorites } from '../../store/productsSlice.js'
 import { addToCart } from '../../store/cartSlice.js'
+import IsLoading from '../../components/isLoading/index.js'
 
 const HomePage = () => {
-  const products = useSelector((store) => store.products.products)
+  const { products, isLoading } = useSelector((store) => store.products)
   const favorites = useSelector((store) => store.products.favourites)
   const [search, setSearch] = useState('')
   const dispatch = useDispatch()
@@ -27,27 +28,35 @@ const HomePage = () => {
     dispatch(addToCart(product))
   }
 
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+
   return (
     <>
       <SearchComponents search={search} setSearch={setSearch} />
       <div className="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">
-            Наши товары
-          </h2>
+        {isLoading ? (
+          <IsLoading />
+        ) : (
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-8 text-center">
+              Наши товары
+            </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductsCart
-                key={product.id}
-                product={product}
-                onFavorite={handleFavorite}
-                isFavorite={isFavorite(product.id)}
-                handleAddToCart={handleAddToCart}
-              />
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductsCart
+                  key={product.id}
+                  product={product}
+                  onFavorite={handleFavorite}
+                  isFavorite={isFavorite(product.id)}
+                  handleAddToCart={handleAddToCart}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   )

@@ -17,8 +17,8 @@ const FavoritesPage = () => {
     dispatch(clearFavorites())
   }
 
-  const handleAddToCart = () => {
-    dispatch(handleAddToCart())
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
   }
 
   if (favorites.length === 0) {
@@ -51,7 +51,7 @@ const FavoritesPage = () => {
             onClick={handleClearFavorites}
             className="
             rounded-md
-              bg-gray-900
+              bg-danger
               px-5
               py-2
               text-sm
@@ -60,7 +60,7 @@ const FavoritesPage = () => {
               border
               border-gray-900
               transition
-              hover:bg-gray-800
+              hover:bg-danger
               hover:border-gray-800
               active:scale-[0.97]
               focus:outline-none
@@ -82,6 +82,7 @@ const FavoritesPage = () => {
               product={product}
               onFavorite={handleFavorite}
               isFavorite={true}
+              handleAddToCart={handleAddToCart}
             />
           ))}
         </div>
