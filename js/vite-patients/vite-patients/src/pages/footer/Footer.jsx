@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-gray-50 border-t border-gray-200 ">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <p className="text-gray-400 text-xs text-center">
-          © 2026 Медицинский Центр. Лицензия № ЛО-77-01-000000.
+          © 2026 Медицинский Центр.
         </p>
       </div>
     </footer>
