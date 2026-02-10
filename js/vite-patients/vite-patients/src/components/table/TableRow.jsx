@@ -6,7 +6,6 @@ const TableRow = ({ patient }) => {
   const navigate = useNavigate()
   return (
     <tr
-      key={patient.id}
       className="hover:bg-blue-50/30 transition-colors group cursor-pointer"
       onClick={() => navigate(`/${patient.id}`)}
     >
@@ -20,13 +19,7 @@ const TableRow = ({ patient }) => {
       </td>
       <td className="px-6 py-4 text-slate-600 text-sm">{patient.dob}</td>
       <td className="px-6 py-4">
-        <span
-          className={`px-2 py-1 rounded-md text-xs font-medium ${
-            patient.gender === 'Мужской'
-              ? 'bg-blue-100 text-blue-700'
-              : 'bg-pink-100 text-pink-700'
-          }`}
-        >
+        <span className="px-2 py-1 rounded-md text-xs font-medium text-blue-500">
           {patient.gender}
         </span>
       </td>

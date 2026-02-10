@@ -18,8 +18,12 @@ const PatientDetailsPage = () => {
   return patientId ? (
     <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-700">
       <button className="flex items-center text-blue-600 hover:text-blue-800 transition-colors mb-6">
-        <Link to="/">
-          <ArrowLeft className="w-4 h-4 mr-2" /> Назад к списку
+        <Link
+          to="/"
+          className="flex items-center text-blue-600 hover:text-blue-800 transition-colors mb-6"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          <span>Назад к списку</span>
         </Link>
       </button>
 
@@ -39,11 +43,7 @@ const PatientDetailsPage = () => {
               <span>{patientId.dob}</span>
             </div>
             <div className="flex items-center gap-3">
-              {patientId.gender === 'Мужской' ? (
-                <Mars className="w-5 h-5 text-blue-500" />
-              ) : (
-                <Venus className="w-5 h-5 text-pink-500" />
-              )}
+              <Venus className="w-5 h-5 text-blue-500" />
               <span>{patientId.gender}</span>
             </div>
             <div className="flex items-center gap-3">

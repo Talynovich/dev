@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Phone, Calendar, ArrowLeft, Activity, Venus, Mars } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPatients } from '../../store/patientsSlice'
 import Table from '../../components/table/Table'

@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { baseurl } from '../constant/constant'
 
 export const fetchPatients = createAsyncThunk(
-  'patients/fetchPatients', // название, которое будет присвоено этому запросу
+  'patients/fetchPatients',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios(
-        'https://6988cf81780e8375a68934bf.mockapi.io/patients'
-      )
+      const response = await axios(`${baseurl}`)
       return response.data
     } catch (err) {
       return rejectWithValue(err.response.data)

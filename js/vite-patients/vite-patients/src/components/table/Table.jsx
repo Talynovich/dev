@@ -10,7 +10,7 @@ const Table = ({ filteredPatients }) => {
         <TableHead />
         <tbody className="divide-y divide-slate-100">
           {filteredPatients.map((patient) => (
-            <TableRow patient={patient} />
+            <TableRow patient={patient} key={patient.id} />
           ))}
           {filteredPatients.length === 0 && <PatientsNotFound />}
         </tbody>
