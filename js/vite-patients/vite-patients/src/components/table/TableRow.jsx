@@ -1,12 +1,14 @@
 import React from 'react'
 import { ChevronRight, User } from 'lucide-react'
+import { useNavigate } from 'react-router'
 
 const TableRow = ({ patient }) => {
+  const navigate = useNavigate()
   return (
     <tr
       key={patient.id}
       className="hover:bg-blue-50/30 transition-colors group cursor-pointer"
-      onClick={() => setSelectedPatient(patient)}
+      onClick={() => navigate(`/${patient.id}`)}
     >
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">

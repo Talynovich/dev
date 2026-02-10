@@ -1,6 +1,6 @@
 import { User, ChevronRight } from 'lucide-react'
 
-const PatientRow = ({ patient, onClick }) => (
+const PatientRow = ({ patient }) => (
   <tr
     className="hover:bg-blue-50/30 transition-colors group cursor-pointer border-b border-slate-100 last:border-0"
     onClick={() => onClick(patient)}
