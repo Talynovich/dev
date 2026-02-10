@@ -17,7 +17,9 @@ const TableRow = ({ patient }) => {
           <span className="font-medium text-slate-800">{patient.name}</span>
         </div>
       </td>
-      <td className="px-6 py-4 text-slate-600 text-sm">{patient.dob}</td>
+      <td className="px-6 py-4 text-slate-600 text-sm">
+        {patient.dob.slice(0, 10)}
+      </td>
       <td className="px-6 py-4">
         <span className="px-2 py-1 rounded-md text-xs font-medium text-blue-500">
           {patient.gender}

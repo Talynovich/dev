@@ -40,7 +40,7 @@ const PatientDetailsPage = () => {
             </h3>
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-blue-500" />
-              <span>{patientId.dob}</span>
+              <span>{patientId.dob.slice(0, 10)}</span>
             </div>
             <div className="flex items-center gap-3">
               <Venus className="w-5 h-5 text-blue-500" />
