@@ -1,11 +1,19 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { Provider } from 'react-redux'
-import { store } from './store/index.js'
+import { BrowserRouter, Route, Routes } from 'react-router'
+import { store } from './store/'
+import HomePage from './pages/homePage/'
+import LayoutPage from './pages/LayoutPage'
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LayoutPage />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </Provider>
 )

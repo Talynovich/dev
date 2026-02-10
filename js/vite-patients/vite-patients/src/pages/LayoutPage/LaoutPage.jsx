@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 import Header from '../header'
 import Footer from '../footer/index.js'
 
-const Laout = () => {
+const LaoutPage = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const Laout = () => {
   )
 }
 
-export default Laout
+export default LaoutPage

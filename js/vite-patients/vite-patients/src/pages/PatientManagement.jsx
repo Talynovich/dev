@@ -9,7 +9,7 @@ import {
   Venus,
   Mars,
 } from 'lucide-react'
-import SearchBar from '../components/SearchBar/SearchBar.jsx'
+import SearchBar from '../components/SearchBarHeader/SearchBar.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPatients } from '../store/patientsSlice.js'
 
