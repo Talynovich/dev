@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
+import { baseurl } from '../../constant/constant.js'
 
 const Form = ({ isOpen, onClose, onAdd }) => {
   const [formData, setFormData] = useState({
@@ -8,13 +11,17 @@ const Form = ({ isOpen, onClose, onAdd }) => {
     status: 'Стабилен',
   })
 
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
   if (!isOpen) return null
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    onAdd(formData)
-    onClose()
-    setFormData({ name: '', birthDate: '', phone: '', status: 'Стабилен' })
+  const OnSubmit = (data) => {
+    axios.post(`${baseurl}`, data)
   }
 
   return (
@@ -34,20 +41,17 @@ const Form = ({ isOpen, onClose, onAdd }) => {
         </div>
 
         {/* Форма */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit(OnSubmit)} className="p-6 space-y-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               ФИО пациента
             </label>
             <input
-              required
               type="text"
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               placeholder="Иванов Иван Иванович"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
+              {...register('name', { required: true })}
             />
           </div>
 
@@ -59,13 +63,12 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               <input
                 required
                 type="date"
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                value={formData.birthDate}
-                onChange={(e) =>
-                  setFormData({ ...formData, birthDate: e.target.value })
-                }
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                   focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                {...register('dob', { required: true })}
               />
             </div>
+
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Телефон
@@ -74,11 +77,9 @@ const Form = ({ isOpen, onClose, onAdd }) => {
                 required
                 type="tel"
                 placeholder="+7 (___) ___"
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                   focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                {...register('phone', { required: true })}
               />
             </div>
           </div>
@@ -88,15 +89,41 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               Пол
             </label>
             <select
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white"
-              value={formData.status}
-              onChange={(e) =>
-                setFormData({ ...formData, status: e.target.value })
-              }
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white"
+              {...register('gender', { required: true })}
             >
-              <option value="Стабилен">Мужской</option>
-              <option value="Наблюдение">Женский</option>
+              <option value="Мужской">Мужской</option>
+              <option value="Женский">Женский</option>
             </select>
+          </div>
+
+          {/* Диагноз */}
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">
+              Диагноз
+            </label>
+            <input
+              type="text"
+              placeholder="Основной диагноз"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              {...register('diagnosis', { required: true })}
+            />
+          </div>
+
+          {/* История болезни */}
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">
+              История болезни
+            </label>
+            <textarea
+              rows={4}
+              placeholder="Опишите историю болезни пациента..."
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
+              {...register('medicalHistory')}
+            />
           </div>
 
           {/* Кнопки управления */}
@@ -104,13 +131,16 @@ const Form = ({ isOpen, onClose, onAdd }) => {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-slate-300 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
+              className="flex-1 px-4 py-2 border border-slate-300 text-slate-600
+                 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
             >
               Отмена
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2 border border-slate-300 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
+              className="flex-1 px-4 py-2 border border-slate-300 text-slate-600
+                 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
+              onClick={OnSubmit}
             >
               Сохранить
             </button>
