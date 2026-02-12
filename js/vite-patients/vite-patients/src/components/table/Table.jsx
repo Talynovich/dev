@@ -1,7 +1,7 @@
 import React from 'react'
-import TableRow from './TableRow.jsx'
-import PatientsNotFound from '../patientsNotFound/index.js'
-import TableHead from '../tableHead/index.js'
+import TableRow from './TableRow'
+import PatientsNotFound from '../patientsNotFound'
+import TableHead from '../tableHead'
 
 const Table = ({ filteredPatients }) => {
   return (

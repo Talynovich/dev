@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
-import { baseurl } from '../../constant/constant.js'
+import { useDispatch } from 'react-redux'
+import { addPatient } from '../../store/patientsSlice.js'
 
-const Form = ({ isOpen, onClose, onAdd }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    birthDate: '',
-    phone: '',
-    status: 'Стабилен',
-  })
-
+const Form = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch()
   const {
     register,
-    watch,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm()
 
-  if (!isOpen) return null
-
-  const OnSubmit = (data) => {
-    axios.post(`${baseurl}`, data)
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(addPatient(data)).unwrap()
+      reset()
+      onClose()
+    } catch (error) {
+      console.error(error)
+    }
   }
+
+  if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
@@ -41,7 +41,7 @@ const Form = ({ isOpen, onClose, onAdd }) => {
         </div>
 
         {/* Форма */}
-        <form onSubmit={handleSubmit(OnSubmit)} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               ФИО пациента
@@ -51,8 +51,17 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               className="w-full px-3 py-2 border border-slate-300 rounded-lg
                  focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               placeholder="Иванов Иван Иванович"
-              {...register('name', { required: true })}
+              {...register('name', {
+                required: true,
+                pattern: {
+                  value: /^[^\d]+(\s+[^\d]+)+$/,
+                  message: 'ФИО должно содержать минимум два слова и без цифр',
+                },
+              })}
             />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -76,11 +85,25 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               <input
                 required
                 type="tel"
+                maxLength={13}
+                defaultValue="+996"
                 placeholder="+7 (___) ___"
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg
                    focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                {...register('phone', { required: true })}
+                {...register('phone', {
+                  required: true,
+                  pattern: {
+                    value: /^\+996\d{9}$/,
+                    message:
+                      'Телефон должен быть в формате +996XXXXXXXXX. Введите корректный номер. ',
+                  },
+                })}
               />
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
             </div>
           </div>
 
@@ -98,7 +121,6 @@ const Form = ({ isOpen, onClose, onAdd }) => {
             </select>
           </div>
 
-          {/* Диагноз */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               Диагноз
@@ -108,11 +130,9 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               placeholder="Основной диагноз"
               className="w-full px-3 py-2 border border-slate-300 rounded-lg
                  focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-              {...register('diagnosis', { required: true })}
+              {...register('diagnosis')}
             />
           </div>
-
-          {/* История болезни */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               История болезни
@@ -125,8 +145,6 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               {...register('medicalHistory')}
             />
           </div>
-
-          {/* Кнопки управления */}
           <div className="flex gap-3 pt-4">
             <button
               type="button"
@@ -140,7 +158,7 @@ const Form = ({ isOpen, onClose, onAdd }) => {
               type="submit"
               className="flex-1 px-4 py-2 border border-slate-300 text-slate-600
                  rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
-              onClick={OnSubmit}
+              onClick={onSubmit}
             >
               Сохранить
             </button>

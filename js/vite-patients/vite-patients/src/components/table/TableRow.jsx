@@ -3,13 +3,17 @@ import { ChevronRight, User } from 'lucide-react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { baseurl } from '../../constant/constant.js'
+import { deletePatient } from '../../store/patientsSlice'
+import { useDispatch } from 'react-redux'
 
 const TableRow = ({ patient }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const onDelete = () => {
-    console.log(patient.id, `patient.id`)
-    axios.delete(`${baseurl}/${patient.id}`, {})
+
+  const onDelete = (id) => {
+    dispatch(deletePatient(id))
   }
+
   return (
     <tr className="hover:bg-blue-50/30 transition-colors group cursor-pointer">
       <td className="px-6 py-4" onClick={() => navigate(`/${patient.id}`)}>
@@ -41,20 +45,19 @@ const TableRow = ({ patient }) => {
         {patient.phone}
       </td>
       <td className="px-6 py-4 text-right">
-        <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition">
+        <div className="flex justify-end gap-2 group-hover:opacity-100 transition">
           {/* Изменить */}
           <button
-            onClick={() => onDelete(patient.id)}
-            className="p-1.5 rounded-md hover:bg-blue-100 text-blue-500"
+            onClick={() => {}}
+            className="p-1.5 rounded-md hover:bg-blue-100 text-blue-500 cursor-pointer"
             title="Редактировать"
           >
             ✏️
           </button>
 
-          {/* Удалить */}
           <button
-            onClick={onDelete}
-            className="p-1.5 rounded-md hover:bg-red-100 text-red-500"
+            onClick={() => onDelete(patient.id)}
+            className="p-1.5 rounded-md hover:bg-red-100 text-red-500 cursor-pointer"
             title="Удалить"
           >
             🗑
