@@ -1,8 +1,6 @@
 import React from 'react'
 import { ChevronRight, User } from 'lucide-react'
 import { useNavigate } from 'react-router'
-import axios from 'axios'
-import { baseurl } from '../../constant/constant.js'
 import { deletePatient } from '../../store/patientsSlice'
 import { useDispatch } from 'react-redux'
 
