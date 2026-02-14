@@ -2,6 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { addPatient } from '../../store/patientsSlice.js'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { schemaPatients } from '../../shared/lib/validation/patient.schema.js'
 
 const Form = ({ isOpen, onClose }) => {
   const dispatch = useDispatch()
@@ -10,7 +12,7 @@ const Form = ({ isOpen, onClose }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm()
+  } = useForm({ resolver: yupResolver(schemaPatients) })
 
   const onSubmit = async (data) => {
     try {
@@ -51,20 +53,14 @@ const Form = ({ isOpen, onClose }) => {
               className="w-full px-3 py-2 border border-slate-300 rounded-lg
                  focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
               placeholder="Иванов Иван Иванович"
-              {...register('name', {
-                required: true,
-                pattern: {
-                  value: /^[^\d]+(\s+[^\d]+)+$/,
-                  message: 'ФИО должно содержать минимум два слова и без цифр',
-                },
-              })}
+              {...register('name')}
             />
             {errors.name && (
               <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Дата рождения
@@ -72,10 +68,15 @@ const Form = ({ isOpen, onClose }) => {
               <input
                 required
                 type="date"
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg
-                   focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                {...register('dob', { required: true })}
+                className="w-full h-10 px-3 border border-slate-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                {...register('dob')}
               />
+              {errors.dob && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.dob.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -87,17 +88,9 @@ const Form = ({ isOpen, onClose }) => {
                 type="tel"
                 maxLength={13}
                 defaultValue="+996"
-                placeholder="+7 (___) ___"
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg
-                   focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                {...register('phone', {
-                  required: true,
-                  pattern: {
-                    value: /^\+996\d{9}$/,
-                    message:
-                      'Телефон должен быть в формате +996XXXXXXXXX. Введите корректный номер. ',
-                  },
-                })}
+                className="w-full h-10 px-3 border border-slate-300 rounded-lg
+             focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                {...register('phone')}
               />
               {errors.phone && (
                 <p className="text-red-500 text-sm mt-1">
@@ -114,7 +107,7 @@ const Form = ({ isOpen, onClose }) => {
             <select
               className="w-full px-3 py-2 border border-slate-300 rounded-lg
                  focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all bg-white"
-              {...register('gender', { required: true })}
+              {...register('gender')}
             >
               <option value="Мужской">Мужской</option>
               <option value="Женский">Женский</option>

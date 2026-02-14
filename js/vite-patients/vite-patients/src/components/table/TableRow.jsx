@@ -26,7 +26,7 @@ const TableRow = ({ patient }) => {
         className="px-6 py-4 text-slate-600 text-sm"
         onClick={() => navigate(`/${patient.id}`)}
       >
-        {patient.dob.slice(0, 10)}
+        {new Date(patient.dob).toISOString().slice(0, 10)}
       </td>
       <td className="px-6 py-4">
         <span
