@@ -1,18 +1,55 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { addPatient } from '../../store/patientsSlice.js'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schemaPatients } from '../../shared/lib/validation/patient.schema.js'
 
-const Form = ({ isOpen, onClose }) => {
+const Form = ({ isOpen, onClose, initialDate }) => {
   const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schemaPatients) })
+  } = useForm({
+    resolver: yupResolver(schemaPatients),
+    defaultValues: {
+      name: '',
+      dob: '',
+      gender: 'Мужской',
+      phone: '+996',
+      diagnosis: '',
+      medicalHistory: '',
+    },
+  })
+
+  const handleClose = () => {
+    reset()
+    onClose()
+  }
+
+  useEffect(() => {
+    if (initialDate) {
+      reset({
+        name: initialDate.name || '',
+        dob: initialDate.dob.slice(0, 10) || '',
+        gender: initialDate.gender || 'Мужской',
+        phone: initialDate.phone || '+996',
+        diagnosis: initialDate.diagnosis || '',
+        medicalHistory: initialDate.medicalHistory || '',
+      })
+    } else {
+      reset({
+        name: '',
+        dob: '',
+        gender: 'Мужской',
+        phone: '+996',
+        diagnosis: '',
+        medicalHistory: '',
+      })
+    }
+  }, [initialDate, reset])
 
   const onSubmit = async (data) => {
     try {
@@ -29,20 +66,17 @@ const Form = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
       <div className="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
-        {/* Шапка модалки */}
         <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
           <h2 className="text-xl font-semibold text-slate-800">
             Новый пациент
           </h2>
           <button
-            onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 transition-colors"
+            onClick={handleClose}
+            className="text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
           >
             ✕
           </button>
         </div>
-
-        {/* Форма */}
         <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
@@ -87,7 +121,6 @@ const Form = ({ isOpen, onClose }) => {
                 required
                 type="tel"
                 maxLength={13}
-                defaultValue="+996"
                 className="w-full h-10 px-3 border border-slate-300 rounded-lg
              focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                 {...register('phone')}
@@ -141,17 +174,15 @@ const Form = ({ isOpen, onClose }) => {
           <div className="flex gap-3 pt-4">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleClose}
               className="flex-1 px-4 py-2 border border-slate-300 text-slate-600
                  rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
             >
               Отмена
             </button>
             <button
-              type="submit"
               className="flex-1 px-4 py-2 border border-slate-300 text-slate-600
                  rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
-              onClick={onSubmit}
             >
               Сохранить
             </button>

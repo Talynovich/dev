@@ -27,13 +27,22 @@ export const deletePatient = createAsyncThunk(
 )
 
 export const addPatient = createAsyncThunk(
-  `patients/addPatient`,
-  async (data, { rejectWithValue }) => {
+  'patients/addPatient',
+  async (data, { rejectWithValue, getState }) => {
     try {
-      await axios.post(`${baseurl}`, data)
-      return data
+      const { currentPatient } = getState().patients
+
+      let response
+
+      if (currentPatient) {
+        response = await axios.put(`${baseurl}/${currentPatient.id}`, data)
+      } else {
+        response = await axios.post(baseurl, data)
+      }
+
+      return response.data
     } catch (err) {
-      return rejectWithValue(err.response.data)
+      return rejectWithValue(err.response?.data || err.message)
     }
   }
 )
@@ -42,10 +51,15 @@ const patientsSlice = createSlice({
   name: 'patients',
   initialState: {
     patient: [],
+    currentPatient: null,
     isLoading: true,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setCurrentPatient(state, action) {
+      state.currentPatient = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPatients.pending, (state) => {
@@ -70,10 +84,16 @@ const patientsSlice = createSlice({
         state.error = action.payload
       })
       .addCase(addPatient.fulfilled, (state, action) => {
-        state.patient.push(action.payload)
+        const index = state.patient.findIndex((p) => p.id === action.payload.id)
+        if (index !== -1) {
+          state.patient[index] = action.payload
+        } else {
+          state.patient.push(action.payload)
+        }
+        state.currentPatient = null
       })
   },
 })
 
-export const {} = patientsSlice.actions
+export const { setCurrentPatient } = patientsSlice.actions
 export default patientsSlice.reducer

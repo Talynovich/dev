@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
 import SearchBar from './SearchBar.jsx'
 import Form from '../../pages/form/index.js'
 
-const SearchBarHeader = ({ filteredPatients, searchTerm, setSearchTerm }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+const SearchBarHeader = ({
+  filteredPatients,
+  searchTerm,
+  setSearchTerm,
+  isModalOpen,
+  setIsModalOpen,
+  initialDate,
+  handleCloseModal,
+}) => {
   return (
     <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
@@ -20,7 +26,11 @@ const SearchBarHeader = ({ filteredPatients, searchTerm, setSearchTerm }) => {
         <span className="text-xl leading-none">+</span>
         <span>Добавить пациента</span>
       </button>
-      <Form isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Form
+        isOpen={isModalOpen}
+        initialDate={initialDate}
+        onClose={handleCloseModal}
+      />
     </div>
   )
 }

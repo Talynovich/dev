@@ -3,8 +3,9 @@ import { ChevronRight, User } from 'lucide-react'
 import { useNavigate } from 'react-router'
 import { deletePatient } from '../../store/patientsSlice'
 import { useDispatch } from 'react-redux'
+import classNames from 'classnames'
 
-const TableRow = ({ patient }) => {
+const TableRow = ({ patient, handleEditingClick }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -30,7 +31,13 @@ const TableRow = ({ patient }) => {
       </td>
       <td className="px-6 py-4">
         <span
-          className="px-2 py-1 rounded-md text-xs font-medium text-blue-500"
+          className={classNames(
+            `px-2 py-1 rounded-md text-xs font-medium text-blue-500`,
+            {
+              'text-blue-500': patient.gender === 'Мужской',
+              'text-pink-500': patient.gender === 'Женский',
+            }
+          )}
           onClick={() => navigate(`/${patient.id}`)}
         >
           {patient.gender}
@@ -46,7 +53,7 @@ const TableRow = ({ patient }) => {
         <div className="flex justify-end gap-2 group-hover:opacity-100 transition">
           {/* Изменить */}
           <button
-            onClick={() => {}}
+            onClick={() => handleEditingClick(patient)}
             className="p-1.5 rounded-md hover:bg-blue-100 text-blue-500 cursor-pointer"
             title="Редактировать"
           >
