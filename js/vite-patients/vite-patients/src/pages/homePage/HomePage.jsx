@@ -20,9 +20,9 @@ const PatientManagement = () => {
     dispatch(fetchPatients())
   }, [dispatch])
 
-  const patients = useSelector((store) => store.patients.patient)
+  const { patient, isLoading } = useSelector((store) => store.patients)
 
-  const filteredPatients = patients.filter((p) =>
+  const filteredPatients = patient.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
@@ -110,7 +110,12 @@ const PatientManagement = () => {
           handleCloseModal={handleCloseModal}
         />
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <Table columns={columns} dataSource={filteredPatients} rowKey="id" />
+          <Table
+            columns={columns}
+            dataSource={filteredPatients}
+            loading={isLoading}
+            rowKey="id"
+          />
         </div>
       </div>
     </div>
