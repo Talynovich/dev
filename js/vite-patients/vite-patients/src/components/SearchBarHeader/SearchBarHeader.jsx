@@ -1,5 +1,6 @@
 import SearchBar from './SearchBar.jsx'
 import Form from '../../pages/form/index.js'
+import { Button } from 'antd'
 
 const SearchBarHeader = ({
   filteredPatients,
@@ -19,13 +20,15 @@ const SearchBarHeader = ({
         </p>
       </div>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <button
+      <Button
+        color="primary"
+        variant="filled"
         onClick={() => setIsModalOpen(true)}
         className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-black px-4 py-2 rounded-lg transition-colors font-medium shadow-sm cursor-pointer"
       >
         <span className="text-xl leading-none">+</span>
         <span>Добавить пациента</span>
-      </button>
+      </Button>
       <Form
         isOpen={isModalOpen}
         initialDate={initialDate}
