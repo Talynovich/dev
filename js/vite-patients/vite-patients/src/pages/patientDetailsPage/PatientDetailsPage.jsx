@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Activity, ArrowLeft, Calendar, Mars, Phone, Venus } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router'
-import { fetchPatients } from '../../store/patientsSlice.js'
+import { fetchPatients } from '../../store/patients/patientsThunks.js'
 import IsLoading from '../../components/isLoading'
 
 const PatientDetailsPage = () => {

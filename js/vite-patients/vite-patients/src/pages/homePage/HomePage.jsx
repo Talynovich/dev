@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   deletePatient,
   fetchPatients,
-  setCurrentPatient,
-} from '../../store/patientsSlice'
+} from '../../store/patients/patientsThunks.js'
+import { setCurrentPatient } from '../../store/patients/patientsSlice.js'
 import SearchBarHeader from '../../components/SearchBarHeader/SearchBarHeader'
 import { Button, Popconfirm, Space, Table, message } from 'antd'
 import dayjs from 'dayjs'

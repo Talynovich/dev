@@ -1,7 +1,7 @@
 import React from 'react'
 import { ChevronRight, User } from 'lucide-react'
 import { useNavigate } from 'react-router'
-import { deletePatient } from '../../store/patientsSlice'
+import { deletePatient } from '../../store/patients/patientsSlice.js'
 import { useDispatch } from 'react-redux'
 import classNames from 'classnames'
 

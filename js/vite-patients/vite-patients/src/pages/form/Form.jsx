@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { addPatient } from '../../store/patientsSlice.js'
+import { addPatient } from '../../store/patients/patientsThunks.js'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schemaPatients } from '../../shared/lib/validation/patient.schema.js'
 
