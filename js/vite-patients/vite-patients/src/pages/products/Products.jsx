@@ -3,6 +3,7 @@ import { SearchOutlined, PlusOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../store/products/productsThunks.js'
+import Header from '../header/index.js'
 
 const { Search } = Input
 
@@ -47,6 +48,7 @@ const PatientsTable = () => {
 
   return (
     <Card>
+      <Header />
       <Input.Search
         placeholder="Поиск пациента"
         allowClear

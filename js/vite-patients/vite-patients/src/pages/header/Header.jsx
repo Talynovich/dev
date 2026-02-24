@@ -1,7 +1,23 @@
 import React from 'react'
 import { Search, Bell, User, ChevronDown, Activity } from 'lucide-react'
+import { Tabs } from 'antd'
+import { Link, useLocation } from 'react-router'
 
 const Header = () => {
+  const location = useLocation()
+  const onChange = (key) => {
+    console.log(key)
+  }
+  const items = [
+    {
+      key: '/',
+      label: <Link to="/">Tab 1</Link>,
+    },
+    {
+      key: '/products',
+      label: <Link to="/products">Tab 2</Link>,
+    },
+  ]
   return (
     <header className="bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
@@ -10,18 +26,11 @@ const Header = () => {
         </a>
 
         <nav className="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-          <a href="#" className="hover:text-blue-600 transition">
-            Услуги
-          </a>
-          <a href="#" className="hover:text-blue-600 transition">
-            Врачи
-          </a>
-          <a href="#" className="hover:text-blue-600 transition">
-            Цены
-          </a>
-          <a href="#" className="hover:text-blue-600 transition">
-            Контакты
-          </a>
+          <Tabs
+            defaultActiveKey="/"
+            items={items}
+            activeKey={location.pathname}
+          />
         </nav>
       </div>
     </header>

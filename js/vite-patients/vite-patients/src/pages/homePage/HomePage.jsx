@@ -70,6 +70,8 @@ const PatientManagement = () => {
     {
       title: 'Действия',
       key: 'action',
+      fixed: 'right',
+      width: 50,
       render: (_, record) => (
         <Space size="middle">
           <Button
@@ -109,12 +111,13 @@ const PatientManagement = () => {
           initialDate={editingPatient}
           handleCloseModal={handleCloseModal}
         />
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200">
           <Table
             columns={columns}
             dataSource={filteredPatients}
             loading={isLoading}
             rowKey="id"
+            scroll={{ x: 'max-content' }}
           />
         </div>
       </div>
