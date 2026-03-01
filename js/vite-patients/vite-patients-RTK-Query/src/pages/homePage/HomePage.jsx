@@ -1,23 +1,33 @@
-import React, { useState } from 'react'
-import SearchBarHeader from '../../components/SearchBarHeader/SearchBarHeader'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
+
 import { Table, message } from 'antd'
-import { usePatientColumns } from './usePatientColumns'
+
+import SearchBarHeader from '../../components/SearchBarHeader/SearchBarHeader'
+import { useGetUserQuery } from '../../store/auth/authApi'
 import {
   useDeletePatientMutation,
   useGetPatientsQuery,
   useSavePatientMutation,
 } from '../../store/patients/patientsApi.js'
-import { useDispatch } from 'react-redux'
 import { setCurrentPatient } from '../../store/patients/patientsSlice.js'
+import { usePatientColumns } from './usePatientColumns'
 
 const PatientManagement = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingPatient, setEditingPatient] = useState(null)
+
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const { data = [], isLoading } = useGetPatientsQuery()
   const [deletePatient] = useDeletePatientMutation()
   const [savePatient] = useSavePatientMutation()
+  const { isLoading: loading } = useGetUserQuery()
+
+  const { isAuthenticated } = useSelector((state) => state.auth)
   const filteredPatients = data.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -25,7 +35,6 @@ const PatientManagement = () => {
     savePatient(patient)
     setIsModalOpen(true)
     setEditingPatient(patient)
-    console.log(patient, `<<<<<`)
   }
 
   const handleCloseModal = () => {
@@ -46,6 +55,13 @@ const PatientManagement = () => {
     holder,
   })
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login')
+    }
+  }, [isAuthenticated, navigate, loading])
+
+  if (loading || !isAuthenticated) return null
   return (
     <div className="bg-slate-50 p-4 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto">
