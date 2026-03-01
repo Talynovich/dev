@@ -1,8 +1,11 @@
-import SearchBar from './SearchBar.jsx'
-import Form from '../../pages/form/index.js'
+import React from 'react'
+
 import { Button } from 'antd'
 
-const SearchBarHeader = ({
+import ModalForm from '../ModalForm/index.js'
+import SearchBar from './SearchBar'
+
+const PatientsToolbar = ({
   filteredPatients,
   searchTerm,
   setSearchTerm,
@@ -29,7 +32,7 @@ const SearchBarHeader = ({
         <span className="text-xl leading-none">+</span>
         <span>Добавить пациента</span>
       </Button>
-      <Form
+      <ModalForm
         isOpen={isModalOpen}
         initialDate={initialDate}
         onClose={handleCloseModal}
@@ -38,4 +41,4 @@ const SearchBarHeader = ({
   )
 }
 
-export default SearchBarHeader
+export default PatientsToolbar

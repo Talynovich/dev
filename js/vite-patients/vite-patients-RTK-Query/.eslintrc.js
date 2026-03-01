@@ -1,0 +1,15 @@
+module.exports = {
+  'plugins': ['import'],
+  rules: {
+    'import/extensions': [
+      'error',
+      'never',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ]
+  }
+}
