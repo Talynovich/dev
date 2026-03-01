@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router'
+
 import { Button, Popconfirm, Space } from 'antd'
 import dayjs from 'dayjs'
-import { useNavigate } from 'react-router'
 
 export const usePatientColumns = ({ onDelete, onEdit, holder }) => {
   const navigate = useNavigate()
@@ -28,7 +29,6 @@ export const usePatientColumns = ({ onDelete, onEdit, holder }) => {
     {
       title: 'Действия',
       key: 'action',
-      fixed: 'right',
       width: 150,
       render: (_, record) => (
         <Space size="middle">

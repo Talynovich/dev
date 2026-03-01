@@ -1,1 +1,1 @@
-export { default } from './IsLoading'
+export { default } from './Loader'

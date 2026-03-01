@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { Table, message } from 'antd'
 
-import SearchBarHeader from '../../components/SearchBarHeader/SearchBarHeader'
-import { useGetUserQuery } from '../../store/auth/authApi'
+import PatientsToolbar from '../../components/PatientsToolbar/PatientsToolbar'
 import {
   useDeletePatientMutation,
   useGetPatientsQuery,
   useSavePatientMutation,
-} from '../../store/patients/patientsApi.js'
-import { setCurrentPatient } from '../../store/patients/patientsSlice.js'
+} from '../../store/patients/patientsApi'
+import { setCurrentPatient } from '../../store/patients/patientsSlice'
 import { usePatientColumns } from './usePatientColumns'
 
 const PatientManagement = () => {
@@ -20,14 +18,11 @@ const PatientManagement = () => {
   const [editingPatient, setEditingPatient] = useState(null)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const { data = [], isLoading } = useGetPatientsQuery()
   const [deletePatient] = useDeletePatientMutation()
   const [savePatient] = useSavePatientMutation()
-  const { isLoading: loading } = useGetUserQuery()
 
-  const { isAuthenticated } = useSelector((state) => state.auth)
   const filteredPatients = data.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -43,7 +38,7 @@ const PatientManagement = () => {
     dispatch(setCurrentPatient(null))
   }
 
-  const [messageApi, holder] = message.useMessage()
+  const [_, holder] = message.useMessage()
 
   const onDelete = (id) => {
     deletePatient(id)
@@ -55,17 +50,10 @@ const PatientManagement = () => {
     holder,
   })
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login')
-    }
-  }, [isAuthenticated, navigate, loading])
-
-  if (loading || !isAuthenticated) return null
   return (
     <div className="bg-slate-50 p-4 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto">
-        <SearchBarHeader
+        <PatientsToolbar
           filteredPatients={filteredPatients}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

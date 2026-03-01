@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { schemaPatients } from '../../shared/lib/validation/patient.schema.js'
-import { useSavePatientMutation } from '../../store/patients/patientsApi.js'
 
-const Form = ({ isOpen, onClose, initialDate }) => {
+import { yupResolver } from '@hookform/resolvers/yup'
+
+import { schemaPatients } from '../../shared/lib/validation/patient.schema'
+import { useSavePatientMutation } from '../../store/patients/patientsApi'
+
+const ModalForm = ({ isOpen, onClose, initialDate }) => {
   const [savePatient] = useSavePatientMutation()
   const {
     register,
@@ -199,4 +201,4 @@ const Form = ({ isOpen, onClose, initialDate }) => {
   )
 }
 
-export default Form
+export default ModalForm

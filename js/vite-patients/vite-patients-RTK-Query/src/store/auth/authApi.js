@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { authurl } from '../../constant/constant.js'
-import { logout, setCredentials } from './authSlice.js'
+import { authurl } from '../../constant/constant'
+import { logout, setCredentials } from './authSlice'
 
 // 1. Создаем БАЗОВЫЙ запрос (инструмент для сетевых вызовов)
 const baseQuery = fetchBaseQuery({

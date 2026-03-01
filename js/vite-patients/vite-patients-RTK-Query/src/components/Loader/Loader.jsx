@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IsLoading = () => {
+const Loader = () => {
   return (
     <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans animate-pulse">
       {/* Кнопка "Назад" (заглушка) */}
@@ -53,4 +53,4 @@ const IsLoading = () => {
   )
 }
 
-export default IsLoading
+export default Loader

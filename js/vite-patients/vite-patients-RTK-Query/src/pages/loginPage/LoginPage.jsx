@@ -6,7 +6,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Card, Form, Input, Typography, notification } from 'antd'
 
 import { useGetUserQuery, useLoginMutation } from '../../store/auth/authApi'
-import { setCredentials } from '../../store/auth/authSlice.js'
+import { setCredentials } from '../../store/auth/authSlice'
 
 const { Title, Text } = Typography
 

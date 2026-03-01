@@ -1,10 +1,13 @@
 import React from 'react'
-import { Activity, ArrowLeft, Calendar, Mars, Phone, Venus } from 'lucide-react'
 import { Link, useParams } from 'react-router'
-import IsLoading from '../../components/isLoading'
-import { useGetPatientsQuery } from '../../store/patients/patientsApi.js'
+
+import { Activity, ArrowLeft, Calendar, Mars, Phone, Venus } from 'lucide-react'
+
+import Loader from '../../components/Loader'
+import { useGetPatientsQuery } from '../../store/patients/patientsApi'
+
 const PatientDetailsPage = () => {
-  const { data = [] } = useGetPatientsQuery()
+  const { data = [], isLoading } = useGetPatientsQuery()
 
   const { id } = useParams()
   const patientId = data.find((patient) => patient.id === id)
@@ -66,7 +69,7 @@ const PatientDetailsPage = () => {
       </div>
     </div>
   ) : (
-    <IsLoading />
+    <Loader />
   )
 }
 
