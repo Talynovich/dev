@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import type { IUser } from "./types/user"
+import {useEffect, useState} from "react"
+import type {IUser} from "./types/user"
 import UserList from "./components/UserList"
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
     const handleToggle = (id: number) => {
         const updated = users.map((user) =>
             user.id === id
-                ? { ...user, isFavorite: !user.isFavorite }
+                ? {...user, isFavorite: !user.isFavorite}
                 : user
         )
 

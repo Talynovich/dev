@@ -1,4 +1,5 @@
-import type { IUser } from "../types/user"
+import {type FC} from "react";
+import {type IUser} from "../types/user"
 
 interface UserCardProps {
     user: IUser
@@ -6,7 +7,7 @@ interface UserCardProps {
     onDelete: (id: number) => void
 }
 
-const UserCard = ({ user, onToggleFavorite, onDelete }: UserCardProps) => {
+const UserCard: FC<UserCardProps> = ({user, onToggleFavorite, onDelete}) => {
     return (
         <div
             className={`p-4 rounded-xl shadow-md bg-white border transition

@@ -1,4 +1,5 @@
-import type { IUser } from "../types/user"
+import {type FC} from "react"
+import type {IUser} from "../types/user"
 import UserCard from "./UserCard"
 
 interface UserListProps {
@@ -7,7 +8,7 @@ interface UserListProps {
     onDelete: (id: number) => void
 }
 
-const UserList = ({ users, onToggleFavorite, onDelete }: UserListProps) => {
+const UserList: FC<UserListProps> = ({users, onToggleFavorite, onDelete}) => {
     return (
         <div>
             {users.map((user) => (
